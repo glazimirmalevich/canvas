@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label{
+            display: block;
+        }
+        .today, .tomorrow, .aftertomorrow{
+            display: none;
+        }
+        .show{
+            display: inline;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="date">
+    <div class="horoscopes">
+        <label for="today">Today</label>
+        <input id="today" type="radio" checked="true">
+        <div class="today"></div>
+        <label for="tomorrow">Tomorrow</label>
+        <input id="tomorrow" type="radio">
+        <div class="tomorrow"></div>
+        <label for="aftertomorrow">After Tomorrow</label>
+        <input id="aftertomorrow" type="radio">
+        <div class="aftertomorrow"></div>
+    </div>
+    <script src="ZodiacSigns.js"></script>
+</body>
+</html>

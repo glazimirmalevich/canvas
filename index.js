@@ -1,69 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const list = document.querySelector(".list");
-  const dates = new Date();
-  let year = dates.getFullYear();
-  let month = dates.getMonth() + 1;
-  let day = dates.getDate();
-  const newDate = new Date(year, month, 0);
-  class FullDate {
-    #dateWork;
-    constructor(date) {
-      this.date = date;
+  const menu = document.querySelector(".menu");
+  const tabs = document.querySelector(".tabs");
+  const menuItems = document.querySelectorAll("a");
+  const tabItems = document.querySelectorAll(".tab");
+
+  menu.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (event.target.tagName === "A") {
+        menuItems.forEach((item) => {
+            tabItems.forEach((element) => {
+                if(item.innerText === event.target.innerText && element.innerText.includes(item.innerText.slice(8)) ){
+
+                    item.classList.add("active");
+                    element.classList.add("active");
+                    console.log(item.classList);
+                    console.log(element.classList);   
+                }
+                else if(item.classList.contains("active") && element.classList.contains("active")){
+                    item.classList.remove("active");
+                    element.classList.remove("active");
+                    console.log(item.classList);
+                    console.log(element.classList);   
+                }
+            });
+        });
     }
-    getDate = () => {
-        return this.date.getDate();
-    }
-    getMonth = () => {
-        return this.date.getMonth() + 1;
-    }
-    getYear = () => {
-        return this.date.getFullYear();
-    }
-    getFullMonth = () => {
-      switch (this.getMonth()) {
-        case 1:
-          return "Январь";
-        case 2:
-          return "Февраль";
-        case 3:
-          return "Март";
-        case 4:
-          return "Апрель";
-        case 5:
-          return "Май";
-        case 6:
-          return "Июнь";
-        case 7:
-          return "Июль";
-        case 8:
-          return "Август";
-        case 9:
-          return "Сентябрь";
-        case 10:
-          return "Октябрь";
-        case 11:
-          return "Ноябрь";
-        case 12:
-          return "Декабрь";
-      }
-    };
-    getFullDaysOfMonth = () => {
-        return this.#dateWork
-    }
-  }
-    
-  const currentDate = new FullDate(new Date());
-  const anotherDate = new FullDate(new Date(currentDate.getYear(), currentDate.getMonth(), 0));
-  console.log(anotherDate.getDate());
-  list.append(`${currentDate.getFullMonth()} - ${currentDate.getYear()} `);
-//   for (let i = 1; i <= newDate.getDate(); i++) {
-//     const calendarElement = document.createElement("li");
-//     if (i === day && newDate.getMonth() + 1 === month) {
-//       calendarElement.innerText = i;
-//       calendarElement.style.color = "green";
-//     } else {
-//       calendarElement.innerText = i;
-//     }
-//     list.append(calendarElement);
-//   }
+    // if (event.target.tagName === "A") {
+    //     for(let [key, value] of Object.entries(event.target.parentElement.children)){
+    //         if(event.target.innerText === value.innerText){
+    //             event.target.classList.toggle("active");
+    //         }
+    //     }
+
+    // }
+  });
 });

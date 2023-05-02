@@ -6,15 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        ul{
-            list-style-type:circle;
+        #parent {
+            margin: 0 auto;
+            width: 400px;
+        }
+
+        .menu a {
+            margin-right: 5px;
+            display: inline-block;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+            border: 1px solid gray;
+        }
+        .menu a:hover {
+            background: #f8f8f8;
+        }
+        .menu a.active {
+            border-color: transparent;
+            background: #f2f2f2;
+        }
+
+        .tabs .tab:not(.active) {
+            display: none;
+        }
+        .tabs .tab {
+            padding: 10px;
+            background: #f2f2f2;
+            height: 300px;
         }
     </style>
 </head>
 <body>
-    <button>Previous</button>
-    <button>Next</button>
-    <ul class="list"></ul>
+    <div id="parent">
+        <div class="menu">
+            <a href="" class="active">вкладка 1</a>
+            <a href="">вкладка 2</a>
+            <a href="">вкладка 3</a>
+        </div>
+        <div class="tabs">
+            <div class="tab active">
+                текст вкладки 1
+            </div>
+            <div class="tab">
+                текст вкладки 2
+            </div>
+            <div class="tab">
+                текст вкладки 3
+            </div>
+        </div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
