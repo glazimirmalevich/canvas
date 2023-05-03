@@ -6,55 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #parent {
+        body{
+            position: relative;
+        }
+        #wrapper {
+            width: 500px;
             margin: 0 auto;
-            width: 400px;
+            position: relative;
+        }
+        #menu {
+            width: 150px;
+            position: absolute;
+            right: 105%;
+        }
+        #notes {
+            padding: 0;
+            margin: 0;
+        }
+        #notes li {
+            padding: 5px;
+            text-align: center;
+            margin-bottom: 10px;
+            border: 1px dashed gray;
+            list-style-type: none;
+            cursor: pointer;
+        }
+        #notes li:hover, #notes li.active {
+            background: #f1f1f1;
+        }
+        #create button {
+            width: 100%;
+            padding: 5px;
         }
 
-        .menu a {
-            margin-right: 5px;
-            display: inline-block;
+        #text textarea {
+            width: 100%;
+            height: 400px;
+            box-sizing: border-box;
             padding: 10px;
-            color: black;
-            text-decoration: none;
-            border: 1px solid gray;
+            margin-bottom: 10px;
         }
-        .menu a:hover {
-            background: #f8f8f8;
+        #text button {
+            width: 100%;
+            height: 30px;
         }
-        .menu a.active {
-            border-color: transparent;
-            background: #f2f2f2;
-        }
-
-        .tabs .tab:not(.active) {
+        #modal{
+            position: fixed;
             display: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            animation-name: show;
+            animation-duration: 2s;
         }
-        .tabs .tab {
-            padding: 10px;
-            background: #f2f2f2;
-            height: 300px;
+        span {
+            font-size: 25px;
+            padding: 50px;
+            animation-name: show;
+            animation-duration: 2s
         }
+        @keyframes show {
+            0%{
+                color: rgba(0, 0, 0, 0);
+                background-color: inherit;
+            }
+            50%{
+                color: black;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+            100%{
+                color: rgba(0, 0, 0, 0);
+                background-color: inherit;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <div id="parent">
-        <div class="menu">
-            <a href="" class="active">вкладка 1</a>
-            <a href="">вкладка 2</a>
-            <a href="">вкладка 3</a>
-        </div>
-        <div class="tabs">
-            <div class="tab active">
-                текст вкладки 1
-            </div>
-            <div class="tab">
-                текст вкладки 2
-            </div>
-            <div class="tab">
-                текст вкладки 3
+    <div id="wrapper">
+        <div id="menu">
+            <ul id="notes">
+                <li data-key="1">запись 1</li>
+                <li data-key="2">запись 2</li>
+                <li data-key="3">запись 3</li>
+            </ul>
+            <div id="create">
+                <button>новая запись</button>
             </div>
         </div>
+        <div id="text">
+            <textarea></textarea>
+            <button>сохранить</button>
+        </div>
+    </div>
+    <div id="modal">
+        <span>Ваша запись добавлена!</span>
     </div>
     <script src="index.js"></script>
 </body>
